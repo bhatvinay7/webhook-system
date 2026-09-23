@@ -3,10 +3,6 @@
 <img width="911" height="765" alt="Screenshot 2026-02-02 at 2 27 04 PM" src="https://github.com/user-attachments/assets/8d0b1dd7-393d-471f-b131-f3f52224fd6d" />
 
 
-**Youtube Video Explaination**
-
-[<img width="500" height="500" alt="Stripe System D (2)" src="https://github.com/user-attachments/assets/4092c070-264f-46a4-932d-6abd01a4972d" />](https://youtu.be/B6PWwIwXnmA)
-
 
 This is a webhook replication of the Stripe Payments production architecture. Read the full blog post here: [Building Reliable Webhooks at Scale](https://stripe.dev/blog/reliable-webhooks)
 
@@ -20,13 +16,6 @@ Production-grade webhook delivery system replicating Stripe Payments' reliable w
 When Joe runs his T-shirt shop, he needs instant notifications when customers pay. If your webhook system crashes mid-delivery, those payment notifications vanish forever. Customers get charged, but Joe never fulfills orders.
 
 This demo shows how to build webhooks that never lose events, even during service crashes, network failures, database downtime, or deployment rollouts.
-
-## Recent Enhancements
-
-- **User Authentication:** Merchants can now register and login via the API (`/auth/register` and `/auth/login`).
-- **Asymmetric Signatures (Company Standard):** Added `/keys/generate` for Ed25519 key generation. The server securely signs webhooks with the private key, and provides merchants with the public key for verification.
-- **Asynchronous Audit Ledger:** Integrated an MPSC (Multi-Producer, Single-Consumer) background worker to capture critical events (like user registration, key generation, and payment creation) directly to the database without blocking fast-path HTTP requests.
-- **Modularized API:** The main `api-service` has been cleanly separated into distinct routes, models, and background task modules.
 
 ## Architecture Overview
 
