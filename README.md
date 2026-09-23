@@ -2,15 +2,15 @@
 
 ```mermaid
 graph TD
-    A[API Server (Port 3001)] -->|Atomic Insert| B[(PostgreSQL)]
-    B -->|CDC via WAL| C[Sequin]
-    C -->|Publishes Events| D[Apache Kafka]
-    D -->|Stream| E[Restate Workflow Engine]
-    E -->|Invokes| F[svix-caller (Port 9080)]
-    F -->|Fetches Data| G[data-service (Port 3002)]
+    A["API Server (Port 3001)"] -->|Atomic Insert| B[("PostgreSQL")]
+    B -->|CDC via WAL| C["Sequin"]
+    C -->|Publishes Events| D["Apache Kafka"]
+    D -->|Stream| E["Restate Workflow Engine"]
+    E -->|Invokes| F["svix-caller (Port 9080)"]
+    F -->|Fetches Data| G["data-service (Port 3002)"]
     G -.->|Current State| F
-    F -->|Sends to API| H[Svix Cloud]
-    H -->|Delivers Webhook| I[Merchant Endpoint]
+    F -->|Sends to API| H["Svix Cloud"]
+    H -->|Delivers Webhook| I["Merchant Endpoint"]
 ```
 
 
